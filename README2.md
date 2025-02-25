@@ -45,8 +45,8 @@ ccache -M 10G
 ```sh
 export ARCH=arm64
 export CLANG_TRIPLE=aarch64-linux-gnu-
-export CROSS_COMPILE=aarch64-linux-androidkernel-
-export CROSS_COMPILE_ARM32=arm-linux-androidkernel-
+export CROSS_COMPILE=aarch64-linux-android-
+export CROSS_COMPILE_ARM32=arm-linux-android-
 export PATH="$PWD/toolchains/clang/bin:$PWD/toolchains/aarch64/bin:$PWD/toolchains/arm/bin:$PATH"
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
 MAKE_ARGS="
