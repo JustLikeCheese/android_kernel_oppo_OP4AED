@@ -151,7 +151,7 @@ static inline void __percpu_write(void *ptr, unsigned long val, int size)
 static inline unsigned long __percpu_xchg(void *ptr, unsigned long val,
 						int size)
 {
-	unsigned long ret, loop;
+	unsigned long ret=0, loop;
 
 	switch (size) {
 	case 1:
