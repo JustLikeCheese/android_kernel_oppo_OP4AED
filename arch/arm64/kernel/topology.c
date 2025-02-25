@@ -238,7 +238,7 @@ EXPORT_SYMBOL_GPL(cpu_topology);
 
 /* sd energy functions */
 inline
-const struct sched_group_energy * const cpu_cluster_energy(int cpu)
+const struct sched_group_energy * cpu_cluster_energy(int cpu)
 {
 	struct sched_group_energy *sge = sge_array[cpu][SD_LEVEL1];
 #ifdef CONFIG_MTK_UNIFY_POWER
@@ -268,7 +268,7 @@ const struct sched_group_energy * const cpu_cluster_energy(int cpu)
 }
 
 inline
-const struct sched_group_energy * const cpu_core_energy(int cpu)
+const struct sched_group_energy * cpu_core_energy(int cpu)
 {
 	struct sched_group_energy *sge = sge_array[cpu][SD_LEVEL0];
 #ifdef CONFIG_MTK_UNIFY_POWER
@@ -294,7 +294,7 @@ const struct sched_group_energy * const cpu_core_energy(int cpu)
 #ifdef CONFIG_MTK_UNIFY_POWER
 struct sched_group_energy cci_tbl;
 inline
-const struct sched_group_energy * const cci_energy(void)
+const struct sched_group_energy * cci_energy(void)
 {
 	struct sched_group_energy *sge = &cci_tbl;
 	struct upower_tbl_info **addr_ptr_tbl_info;
