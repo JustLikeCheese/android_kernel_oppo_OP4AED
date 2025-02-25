@@ -191,7 +191,7 @@ static IMG_UINT32 MTKGetRGXDevIdx(void)
 static void MTKWriteBackFreqToRGX(PVRSRV_DEVICE_NODE *psDevNode,
 		IMG_UINT32 ui32NewFreq)
 {
-	PVRSRV_DATA *psPVRSRVData = PVRSRVGetPVRSRVData();
+	// PVRSRV_DATA *psPVRSRVData = PVRSRVGetPVRSRVData();
 	RGX_DATA *psRGXData = (RGX_DATA *)psDevNode->psDevConfig->hDevData;
 
 	/* kHz to Hz write to RGX as the same unit */
@@ -324,7 +324,7 @@ static void MTKDisableMfgClock(IMG_BOOL bForce)
 #if defined(MTK_USE_HW_APM)
 static int MTKInitHWAPM(void)
 {
-	unsigned int regval;
+	// unsigned int regval;
 
 	if (!g_pvRegsKM)
 		g_pvRegsKM = OSMapPhysToLin(gsRegsPBase, 0x1000, 0);
@@ -351,34 +351,34 @@ static int MTKInitHWAPM(void)
 
 	if (gpu_debug_enable) {
 		PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
-		(g_pvRegsKM + 0x504), mfg_readl(g_pvRegsKM + 0x504)));
+			(void*)(g_pvRegsKM + 0x504), mfg_readl(g_pvRegsKM + 0x504)));
 
 		PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
-		(g_pvRegsKM + 0x508), mfg_readl(g_pvRegsKM + 0x508)));
+			(void*)(g_pvRegsKM + 0x508), mfg_readl(g_pvRegsKM + 0x508)));
 
 		PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
-		(g_pvRegsKM + 0x50c), mfg_readl(g_pvRegsKM + 0x50c)));
+			(void*)(g_pvRegsKM + 0x50c), mfg_readl(g_pvRegsKM + 0x50c)));
 
 		PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
-		(g_pvRegsKM + 0x510), mfg_readl(g_pvRegsKM + 0x510)));
+			(void*)(g_pvRegsKM + 0x510), mfg_readl(g_pvRegsKM + 0x510)));
 
 		PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
-		(g_pvRegsKM + 0x514), mfg_readl(g_pvRegsKM + 0x514)));
+			(void*)(g_pvRegsKM + 0x514), mfg_readl(g_pvRegsKM + 0x514)));
 
 		PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
-		(g_pvRegsKM + 0x518), mfg_readl(g_pvRegsKM + 0x518)));
+			(void*)(g_pvRegsKM + 0x518), mfg_readl(g_pvRegsKM + 0x518)));
 
 		PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
-		(g_pvRegsKM + 0x51c), mfg_readl(g_pvRegsKM + 0x51c)));
+			(void*)(g_pvRegsKM + 0x51c), mfg_readl(g_pvRegsKM + 0x51c)));
 
 		PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
-		(g_pvRegsKM + 0x520), mfg_readl(g_pvRegsKM + 0x520)));
+			(void*)(g_pvRegsKM + 0x520), mfg_readl(g_pvRegsKM + 0x520)));
 
 		PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
-		(g_pvRegsKM + 0x524), mfg_readl(g_pvRegsKM + 0x524)));
+			(void*)(g_pvRegsKM + 0x524), mfg_readl(g_pvRegsKM + 0x524)));
 
 		PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
-		(g_pvRegsKM + 0x528), mfg_readl(g_pvRegsKM + 0x528)));
+			(void*)(g_pvRegsKM + 0x528), mfg_readl(g_pvRegsKM + 0x528)));
 
 		PVR_DPF((PVR_DBG_ERROR, "LV1 *g_pvRegsKM = 0x%x",
 		mfg_readl(g_pvRegsKM+0x01c)));

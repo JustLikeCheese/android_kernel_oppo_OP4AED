@@ -485,11 +485,11 @@ DecodeHTB(HTB_Sentinel_t *pSentinel,
 			"%-10s:%-5s-%s  %s\n",
 			"Timestamp", "Proc ID", "Group", "Log Entry");
 
-		PVR_DUMPDEBUG_LOG(aszHeader);
+		PVR_DUMPDEBUG_LOG("%s", aszHeader);
 		OSCachedMemSet(aszHeader, 0, sizeof (aszHeader));
 		OSCachedMemSet(aszHeader, '=', nPrinted);
 		aszHeader[nPrinted - 1] = '\n';
-		PVR_DUMPDEBUG_LOG(aszHeader);
+		PVR_DUMPDEBUG_LOG("%s", aszHeader);
 	}
 
 	/*
@@ -644,7 +644,7 @@ DecodeHTB(HTB_Sentinel_t *pSentinel,
 			}
 			else
 			{
-				PVR_DUMPDEBUG_LOG(aszOneArgFmt);
+				PVR_DUMPDEBUG_LOG("%s", aszOneArgFmt);
 			}
 		}
 
@@ -697,7 +697,7 @@ DecodeHTB(HTB_Sentinel_t *pSentinel,
 			{
 				if (pszFmt)
 				{
-					nPrinted = OSSNPrintf(pszBuffer, uBufSize, pszFmt);
+					nPrinted = OSSNPrintf(pszBuffer, uBufSize, "%s", pszFmt);
 					if (nPrinted >= uBufSize)
 					{
 						PVR_DUMPDEBUG_LOG("Buffer overrun - %ld printed,"
@@ -728,7 +728,7 @@ DecodeHTB(HTB_Sentinel_t *pSentinel,
 							break;
 
 						case TRACEBUF_ARG_TYPE_NONE:
-							nPrinted = OSSNPrintf(pszBuffer, uBufSize, pszFmt);
+						nPrinted = OSSNPrintf(pszBuffer, uBufSize, "%s", pszFmt);
 							break;
 
 						default:
@@ -748,7 +748,7 @@ DecodeHTB(HTB_Sentinel_t *pSentinel,
 				/* Display any remaining text in pszFmt string */
 				if (pszFmt)
 				{
-					nPrinted = OSSNPrintf(pszBuffer, uBufSize, pszFmt);
+					nPrinted = OSSNPrintf(pszBuffer, uBufSize, "%s", pszFmt);
 					if (nPrinted >= uBufSize)
 					{
 						PVR_DUMPDEBUG_LOG("Buffer overrun - %ld printed,"
@@ -776,7 +776,7 @@ DecodeHTB(HTB_Sentinel_t *pSentinel,
 			{
 				return;
 			}
-			PVR_DUMPDEBUG_LOG(szBuffer);
+			PVR_DUMPDEBUG_LOG("%s", szBuffer);
 
 			/* Update total bytes processed */
 			pSentinel->uiTotal += uBufSize;

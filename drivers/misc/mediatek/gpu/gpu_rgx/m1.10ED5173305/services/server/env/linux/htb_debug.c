@@ -999,7 +999,7 @@ DecodeHTB(HTB_Sentinel_t *pSentinel,
 		{
 			if (pszFmt)
 			{
-				nPrinted = OSSNPrintf(pszBuffer, uBufSize, pszFmt);
+				nPrinted = OSSNPrintf(pszBuffer, uBufSize, "%s", pszFmt);
 				if (nPrinted >= uBufSize)
 				{
 					PVR_DUMPDEBUG_LOG("Buffer overrun - %ld printed,"
@@ -1029,7 +1029,7 @@ DecodeHTB(HTB_Sentinel_t *pSentinel,
 						break;
 
 					case TRACEBUF_ARG_TYPE_NONE:
-						nPrinted = OSSNPrintf(pszBuffer, uBufSize, pszFmt);
+						nPrinted = OSSNPrintf(pszBuffer, uBufSize, "%s", pszFmt);
 						break;
 
 					default:
@@ -1049,7 +1049,7 @@ DecodeHTB(HTB_Sentinel_t *pSentinel,
 			/* Display any remaining text in pszFmt string */
 			if (pszFmt)
 			{
-				nPrinted = OSSNPrintf(pszBuffer, uBufSize, pszFmt);
+				nPrinted = OSSNPrintf(pszBuffer, uBufSize, "%s", pszFmt);
 				if (nPrinted >= uBufSize)
 				{
 					PVR_DUMPDEBUG_LOG("Buffer overrun - %ld printed,"
