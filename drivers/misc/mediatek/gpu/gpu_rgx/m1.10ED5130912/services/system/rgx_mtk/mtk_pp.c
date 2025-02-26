@@ -406,7 +406,7 @@ static void MTKPP_WORKR_Handle(struct work_struct *_psWork)
 		container_of(_psWork, struct MTKPP_WORKQUEUE_WORKER, sWork);
 
 	/* avoid the build warnning */
-	psWork = psWork;
+	// psWork = psWork;
 	bug_on = psWork->bug_on;
 
 	aee_kernel_exception("gpulog", "aee dump gpulog");
